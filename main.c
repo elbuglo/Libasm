@@ -6,7 +6,7 @@
 /*   By: lulebugl <lulebugl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/24 00:04:40 by lulebugl          #+#    #+#             */
-/*   Updated: 2020/03/24 01:14:50 by lulebugl         ###   ########.fr       */
+/*   Updated: 2020/03/24 01:57:39 by lulebugl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,16 @@ int		ft_strlen(char const *str);
 
 int		main(void)
 {
+	const char *str = "hell";
+
 	printf(GREEN"Start strlen\n"RESET);
-	STRLEN("toto")
+		STRLEN("Hello")
+		STRLEN("Ca marche?")
+		STRLEN("Il semblerait")
+		STRLEN("0123456789ABCDEF")
+		STRLEN("")
+		STRLEN(str)
 	printf(GREEN"End strlen\n"RESET);
+
 	return (0);
 }
