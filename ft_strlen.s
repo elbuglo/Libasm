@@ -1,15 +1,16 @@
-			section	.text
-			global	_ft_strlen
+;ft_strlen.s
+segment .text
+    global ft_strlen
 
-; delete RAX
+ft_strlen:
+    mov     rax, 0
+    jmp     count
 
-_ft_strlen:
-			xor		rax, rax			; i = 0
-			jmp		compare
-increment:
-			inc		rax					; i++
-compare:
-			cmp		BYTE [rdi + rax], 0	; str[i] == 0
-			jne		increment
-done:
-			ret							; return i
+count:
+    cmp     BYTE [rdi + rax], 0
+    je      exit
+    inc     rax
+    jmp     count
+
+exit:
+    ret
