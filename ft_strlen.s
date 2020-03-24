@@ -4,13 +4,13 @@ segment .text
 
 ft_strlen:
     mov     rax, 0
-    jmp     count
+    jmp     count	; start counting
 
 count:
     cmp     BYTE [rdi + rax], 0
     je      exit
-    inc     rax
-    jmp     count
+    inc     rax		; increment the value of rax by one
+    jmp     count 	; loop counting
 
 exit:
     ret

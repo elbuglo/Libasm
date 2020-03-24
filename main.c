@@ -6,7 +6,7 @@
 /*   By: lulebugl <lulebugl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/24 00:04:40 by lulebugl          #+#    #+#             */
-/*   Updated: 2020/03/24 01:07:18 by lulebugl         ###   ########.fr       */
+/*   Updated: 2020/03/24 01:14:50 by lulebugl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ int		ft_strlen(char const *str);
 
 int		main(void)
 {
-	printf(GREEN"--strlen\n"RESET);
+	printf(GREEN"Start strlen\n"RESET);
 	STRLEN("toto")
-	printf(GREEN"-done\n"RESET);
+	printf(GREEN"End strlen\n"RESET);
 	return (0);
 }
