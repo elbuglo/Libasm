@@ -6,7 +6,7 @@
 /*   By: lulebugl <lulebugl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/24 00:04:40 by lulebugl          #+#    #+#             */
-/*   Updated: 2020/03/25 23:35:02 by lulebugl         ###   ########.fr       */
+/*   Updated: 2020/03/25 23:55:20 by lulebugl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int		main(void)
 	while (i < 42)
 		buffer[++i] = 0;
 
-	printf(GREEN"Start strlen\n"RESET);
+	printf(GREEN"Start strlen :\n"RESET);
 		STRLEN("Hello")
 		STRLEN("Ca marche?")
 		STRLEN("Il semblerait")
@@ -42,11 +42,10 @@ int		main(void)
 		STRLEN(str)		
 	printf(GREEN"End strlen\n"RESET);
 
-	printf(GREEN"Start strcpy\n"RESET);
-	printf("`%s` (`toto`)\n", ft_strcpy(buffer, "toto"));
-	//printf("`%s` (empty)\n", ft_strcpy(buffer, ""));
-	//printf("`%s` (`long message`)\n", ft_strcpy(buffer, "long message"));
-	//printf("`%s` (NULL > not modified)\n", ft_strcpy(buffer, NULL));
+	printf(GREEN"\nStart strcpy :\n"RESET);
+		printf("`%s` (`test`)\n", ft_strcpy(buffer, "test"));
+		printf("`%s` ()\n", ft_strcpy(buffer, ""));
+		printf("`%s` (str = `hell`)\n", ft_strcpy(buffer, str));
 	printf(GREEN"End strcpy\n"RESET);
 
 	return (0);

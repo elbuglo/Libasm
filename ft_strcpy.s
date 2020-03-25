@@ -1,46 +1,24 @@
-; ; ft_strcpy
-
-; 	segment .text
-; 	global ft_strcpy
-
-; ft_strcpy:
-; 	xor	rcx, rcx
-; 	xor rdx, rdx	; initialize rdx
-; 	cmp rsi, 0 ; check if dest src exist
-; 	jz return
-; 	jmp	copy
-
-; increment:
-; 	inc	rcx
-
-; copy:
-; 	mov dl, BYTE [rsi + rcx]
-; 	mov BYTE [rdi + rcx], dl
-; 	cmp	dl, 0
-; 	jnz increment
-
-; return:
-; 	mov rax, rdi
-; 	ret
-
 ; ft_strcpy
 
 	segment .text
 	global ft_strcpy
 
 ft_strcpy:
-	xor	rcx, rcx
-	xor rdx, rdx	; initialize rdx
-	cmp rsi, 0 ; check if dest src exist
-	jz return
+	xor	rcx, rcx 
+	xor rdx, rdx
+	cmp rsi, 0 ; check if src exist
+	jz return	; jump to return if bits(src or rsi) are not set(zeros)
 	jmp	copy
 
+increment:
+	inc	rcx
+
 copy:
-	mov dl, BYTE [rsi + rcx]
-	mov BYTE [rdi + rcx], dl
+	mov dl, BYTE [rsi + rcx] ; copy src dans temp
+	mov BYTE [rdi + rcx], dl ; copy tmp dans dest
 	cmp	dl, 0
-	jnz increment
+	jnz increment	; jump to inc if dl(8 lowest bits) are set(not zeros) 
 
 return:
-	mov rax, rdi
+	mov rax, rdi ; return dest
 	ret
