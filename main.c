@@ -6,7 +6,7 @@
 /*   By: lulebugl <lulebugl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/24 00:04:40 by lulebugl          #+#    #+#             */
-/*   Updated: 2020/03/24 02:15:58 by lulebugl         ###   ########.fr       */
+/*   Updated: 2020/03/25 23:35:02 by lulebugl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,12 @@ char	*ft_strcpy(char *dst, char const *src);
 int		main(void)
 {
 	const char *str = "hell";
+	char		buffer[42];
+	int			i;
+
+	i = -1;
+	while (i < 42)
+		buffer[++i] = 0;
 
 	printf(GREEN"Start strlen\n"RESET);
 		STRLEN("Hello")
@@ -37,7 +43,7 @@ int		main(void)
 	printf(GREEN"End strlen\n"RESET);
 
 	printf(GREEN"Start strcpy\n"RESET);
-	printf("`%s` (`toto`)\n", ft_strcpy("0000", "toto"));
+	printf("`%s` (`toto`)\n", ft_strcpy(buffer, "toto"));
 	//printf("`%s` (empty)\n", ft_strcpy(buffer, ""));
 	//printf("`%s` (`long message`)\n", ft_strcpy(buffer, "long message"));
 	//printf("`%s` (NULL > not modified)\n", ft_strcpy(buffer, NULL));

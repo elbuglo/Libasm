@@ -1,19 +1,46 @@
+; ; ft_strcpy
+
+; 	segment .text
+; 	global ft_strcpy
+
+; ft_strcpy:
+; 	xor	rcx, rcx
+; 	xor rdx, rdx	; initialize rdx
+; 	cmp rsi, 0 ; check if dest src exist
+; 	jz return
+; 	jmp	copy
+
+; increment:
+; 	inc	rcx
+
+; copy:
+; 	mov dl, BYTE [rsi + rcx]
+; 	mov BYTE [rdi + rcx], dl
+; 	cmp	dl, 0
+; 	jnz increment
+
+; return:
+; 	mov rax, rdi
+; 	ret
+
 ; ft_strcpy
 
 	segment .text
 	global ft_strcpy
 
 ft_strcpy:
-	mov	rax, 0
+	xor	rcx, rcx
+	xor rdx, rdx	; initialize rdx
+	cmp rsi, 0 ; check if dest src exist
+	jz return
 	jmp	copy
 
 copy:
-	cmp	BYTE[rsi + rax], 0 ; check if we reached the end of the 2nd arg 
-	je	EXIT	; if so, exit and return
-	mov BYTE[rdi + rax], BYTE[rsi + rax] ; Copy the n byte of the 2nd arg to the first
-	inc	rax	; increment rda
-	jmp	copy
+	mov dl, BYTE [rsi + rcx]
+	mov BYTE [rdi + rcx], dl
+	cmp	dl, 0
+	jnz increment
 
-EXIT:
+return:
 	mov rax, rdi
 	ret
