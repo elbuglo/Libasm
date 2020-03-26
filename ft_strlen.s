@@ -1,8 +1,8 @@
 ;ft_strlen.s
 	segment .text
-    global ft_strlen
+    global _ft_strlen
 
-ft_strlen:
+_ft_strlen:
     mov     rax, 0	; initialize rax to 0
     jmp     count	; start counting
 

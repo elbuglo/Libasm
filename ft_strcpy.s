@@ -1,9 +1,9 @@
 ; ft_strcpy
 
 	segment .text
-	global ft_strcpy
+	global _ft_strcpy
 
-ft_strcpy:
+_ft_strcpy:
 	xor	rcx, rcx 
 	xor rdx, rdx
 	cmp rsi, 0 ; check if src exist

@@ -16,9 +16,10 @@ SRCS		=	ft_strlen.s ft_strcpy.s ft_strcmp.s ft_write.s ft_read.s ft_strdup.s
 OBJS		=	$(SRCS:.s=.o)
 
 EXEC		=	test
+##%.o:			%.s
+##				nasm -f elf64 $<
 %.o:			%.s
-				nasm -f elf64 $<
-
+				nasm -f macho64 $<
 all:			$(NAME)
 
 $(NAME):		$(OBJS)
