@@ -6,7 +6,7 @@
 /*   By: lulebugl <lulebugl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/24 00:04:40 by lulebugl          #+#    #+#             */
-/*   Updated: 2020/03/26 01:23:17 by lulebugl         ###   ########.fr       */
+/*   Updated: 2020/03/26 02:20:51 by lulebugl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,9 @@ int		main(void)
 		STRCMP("toto", "")
 		STRCMP("toto", "totobar")
 		STRCMP("ab", "bb")
-	printf(GREEN"End strcpy\n"RESET);
+		STRCMP("bb", "bb")
+		STRCMP("bb", "ab")
+	printf(GREEN"End strcmp\n"RESET);
+	
 	return (0);
 }
