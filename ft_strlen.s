@@ -9,7 +9,7 @@ ft_strlen:
 count:
     cmp     BYTE [rdi + rax], 0	
 	; compare the value byte in rax pos of the first argument(rdi)   
-    je      exit	; if rdi + rax == 0, go to exit
+    je      exit	; if equal, exit
     inc     rax		; increment the value of rax by one
     jmp     count 	; loop counting
 
