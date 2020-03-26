@@ -1,9 +1,9 @@
 ; ft_strcmp
 
 	segment .text
-	global _ft_strcmp
+	global ft_strcmp
 
-_ft_strcmp:
+ft_strcmp:
 	xor	rdx, rdx
 	xor rcx, rcx
 	mov rcx, -1

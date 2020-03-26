@@ -6,7 +6,7 @@
 /*   By: lulebugl <lulebugl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/24 00:04:40 by lulebugl          #+#    #+#             */
-/*   Updated: 2020/03/26 18:45:08 by lulebugl         ###   ########.fr       */
+/*   Updated: 2020/03/26 19:37:44 by lulebugl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,17 +23,21 @@
 # define STRCMP(a, b)	printf("`%s`:`%s` = %d (%d)\n", a, b, ft_strcmp(a, b), strcmp(a, b));
 # define WRITE(s, x)	printf("%ld (`%s`:%ld)\n", ft_write(STDOUT_FILENO, s, x), s, x);
 # define READ(b, x)		r = ft_read(STDIN_FILENO, buffer, x); printf("`%s`:%ld\n", buffer, r);
+# define STRDUP(s)		tmp = ft_strdup(s); printf("`%s` (`%s`)\n", tmp, s);
 
 int		ft_strlen(char const *str);
 char	*ft_strcpy(char *dst, char const *src);
 int		ft_strcmp(char const *s1, char const *s2);
 ssize_t	ft_write(int fd, void const *buf, size_t nbyte);
 ssize_t	ft_read(int fd, void *buf, size_t nbyte);
+char	*ft_strdup(char const *s1);
 
 int		main(void)
 {
-	const char *str = "hell";
+	char 		*str = "hell";
 	char		buffer[42];
+	char		*tmp;
+	char		*tmp2;
 	int			i;
 	long		r;
 
@@ -84,5 +88,16 @@ int		main(void)
 		READ(buffer, 14)
 		READ(buffer, 0)
 	printf(GREEN"End ft_read\n"RESET);
+
+	printf(GREEN"\nStart ft_strdup :\n"RESET);
+		tmp2 = NULL;
+		tmp2 = ft_strdup("HEY"); 
+		printf("%s\n", tmp2);
+		//STRDUP(tmp2)
+		//free(tmp2);
+		//STRDUP(" 1   1")
+		//STRDUP("   -  ")
+		//STRDUP("  ---")
+	printf(GREEN"End ft_strdup\n"RESET);
 	return (0);
 }
