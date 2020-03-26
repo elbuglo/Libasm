@@ -6,7 +6,7 @@
 /*   By: lulebugl <lulebugl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/24 00:04:40 by lulebugl          #+#    #+#             */
-/*   Updated: 2020/03/25 23:55:20 by lulebugl         ###   ########.fr       */
+/*   Updated: 2020/03/26 01:23:17 by lulebugl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,12 @@
 # define GREEN   "\033[32m"
 # define RESET   "\033[0m"
 
-# define STRLEN(x)	printf("`%s` = %d (%d)\n", x, ft_strlen(x), (int)strlen(x));
+# define STRLEN(x)		printf("`%s` = %d (%d)\n", x, ft_strlen(x), (int)strlen(x));
+# define STRCMP(a, b)	printf("`%s`:`%s` = %d (%d)\n", a, b, ft_strcmp(a, b), strcmp(a, b));
 
 int		ft_strlen(char const *str);
 char	*ft_strcpy(char *dst, char const *src);
+int		ft_strcmp(char const *s1, char const *s2);
 
 int		main(void)
 {
@@ -48,5 +50,13 @@ int		main(void)
 		printf("`%s` (str = `hell`)\n", ft_strcpy(buffer, str));
 	printf(GREEN"End strcpy\n"RESET);
 
+	printf(GREEN"\nStart strcmp :\n"RESET);
+		STRCMP("", "")
+		STRCMP("toto", "toto")
+		STRCMP("", "toto")
+		STRCMP("toto", "")
+		STRCMP("toto", "totobar")
+		STRCMP("ab", "bb")
+	printf(GREEN"End strcpy\n"RESET);
 	return (0);
 }
