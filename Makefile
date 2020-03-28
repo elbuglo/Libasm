@@ -6,7 +6,7 @@
 #    By: lulebugl <lulebugl@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/24 00:28:31 by lulebugl          #+#    #+#              #
-#    Updated: 2020/03/26 19:02:18 by lulebugl         ###   ########.fr        #
+#    Updated: 2020/03/28 09:57:38 by lulebugl         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,10 +16,15 @@ SRCS		=	ft_strlen.s ft_strcpy.s ft_strcmp.s ft_write.s ft_read.s ft_strdup.s
 OBJS		=	$(SRCS:.s=.o)
 
 EXEC		=	test
-##%.o:			%.s
-##				nasm -f elf64 $<
+
+##				Ubuntu
 %.o:			%.s
-				nasm -f macho64 $<
+				nasm -f elf64 $<
+
+##				MacOS
+##%.o:			%.s
+##				nasm -f macho64 $<
+
 all:			$(NAME)
 
 $(NAME):		$(OBJS)
