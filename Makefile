@@ -6,7 +6,7 @@
 #    By: lulebugl <lulebugl@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/24 00:28:31 by lulebugl          #+#    #+#              #
-#    Updated: 2020/03/28 11:12:32 by lulebugl         ###   ########.fr        #
+#    Updated: 2020/03/28 11:15:18 by lulebugl         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,14 +38,16 @@ $(NAME):		$(OBJS)
 
 test:			all
 					gcc $(FLAGS) -L. -lasm -o $(EXEC) main.c $(NAME)
+				##./$(TEST) < Makefile
 
 bonus:			$(OBJS) $(OBJS_BONUS)
 				ar rcs $(NAME) $(OBJS) $(OBJS_BONUS) 
 
 test_bonus:			bonus
 						gcc $(FLAGS) -L. -lasm -o $(EXEC_BONUS) main_bonus.c $(NAME)
+
 clean:
-				rm -rf $(OBJS) $(OBJS_BONUS)
+				rm -rf $(OBJS) $(OBJS_BONUS) 
 
 fclean:			clean
 				rm -rf $(NAME)
