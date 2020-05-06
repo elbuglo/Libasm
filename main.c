@@ -6,7 +6,7 @@
 /*   By: nine <nine@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/24 00:04:40 by lulebugl          #+#    #+#             */
-/*   Updated: 2020/05/06 23:48:07 by nine             ###   ########.fr       */
+/*   Updated: 2020/05/07 00:58:44 by nine             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,18 @@
 #include <string.h>
 #include <stdio.h>
 #include <fcntl.h>
+#include <errno.h>
+#include <sys/types.h>
+#include <sys/stat.h>
 
 # define GREEN   "\033[32m"
 # define RESET   "\033[0m"
 
 # define STRLEN(x)		printf("`%s` = %d (%d)\n", x, ft_strlen(x), (int)strlen(x));
 # define STRCMP(a, b)	printf("`%s`:`%s` = %d (%d)\n", a, b, ft_strcmp(a, b), strcmp(a, b));
-# define WRITE(s, x)	printf("%ld (`%s`:%ld)\n", ft_write(STDOUT_FILENO, s, x), s, x);
+// # define WRITE(s, x)	printf("%ld (`%s`:%ld)\n", ft_write(STDOUT_FILENO, s, x), s, x);
+# define TESTFTWRITE(X, Y)	printf("\nbuf: %s // count: %d // ft_write: %lu // errno: %d // strerror: %s\n", X, Y, ft_write(STDOUT_FILENO, X, Y), errno, strerror(errno));
+# define TESTWRITE(X, Y)		printf("\nbuf: %s // count: %d // write: %lu // errno: %d // strerror: %s\n", X, Y, write(STDOUT_FILENO, X, Y), errno, strerror(errno));
 # define READ(b, x)		r = ft_read(STDIN_FILENO, buffer, x); printf("`%s`:%ld\n", buffer, r);
 # define STRDUP(s)		tmp = ft_strdup(s); printf("`%s` (`%s`)\n", tmp, s);
 
@@ -72,15 +77,40 @@ int		main(void)
 		STRCMP("bb", "ab")
 	printf(GREEN"End strcmp\n"RESET);
 	
-	printf(GREEN"\nStart ft_write :\n"RESET);
-		WRITE("Hello", 4L)
-		WRITE("Ca marche?", 4L)
-		WRITE("Il semblerait", 4L)
-		WRITE("0123456789ABCDEF", 2L)
-		WRITE("", 2L)
-		WRITE(str, 4L)
-	printf(GREEN"End ft_write\n"RESET);
-
+	// printf(GREEN"\nStart ft_write :\n"RESET);
+	// 	WRITE("Hello", 6L)
+	// 	WRITE("Ca marche?", 12L)
+	// 	WRITE("Il semblerait", 9L)
+	// 	WRITE("0123456789ABCDEF", 16L)
+	// 	WRITE("", 4L)
+	// 	WRITE(str, 8L)
+	// printf(GREEN"End ft_write\n"RESET);
+	
+	printf("Testing ft_write:\n");
+	printf("--------------------\n");
+	printf("ft_write:\n");
+	TESTFTWRITE("Bonjour!", 2);
+	TESTFTWRITE("Salut!", 7);
+	TESTFTWRITE("A", 2);
+	TESTFTWRITE("", 0);
+	TESTFTWRITE("0123456789", 11);
+	TESTFTWRITE("Bonjour 0123456789", 19);
+	printf("--------------------\n");
+	printf("write:\n");
+	TESTWRITE("Bonjour!", 2);
+	TESTWRITE("Salut!", 7);
+	TESTWRITE("A", 2);
+	TESTWRITE("", 0);
+	TESTWRITE("0123456789", 11);
+	TESTWRITE("Bonjour 0123456789", 19);
+	printf("--------------------\n");
+	printf("Testing ft_write and write with a negative fd:\n");
+	errno = 0;
+	printf("ft_write returns: %ld // errno: %d // strerror: %s\n", ft_write(-1, "Bonjour!", 9), errno, strerror(errno));
+	errno = 0;
+	printf("write returns: %ld // errno: %d // strerror: %s\n", write(-1, "Bonjour!", 9), errno, strerror(errno));
+	printf("\n");
+	
 	printf(GREEN"\nStart ft_read :\n"RESET);
 		READ(buffer, 25)
 		READ(buffer, 4)
