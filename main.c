@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lulebugl <lulebugl@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nine <nine@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/24 00:04:40 by lulebugl          #+#    #+#             */
-/*   Updated: 2020/03/26 19:37:44 by lulebugl         ###   ########.fr       */
+/*   Updated: 2020/05/06 23:48:07 by nine             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,11 +93,11 @@ int		main(void)
 		tmp2 = NULL;
 		tmp2 = ft_strdup("HEY"); 
 		printf("%s\n", tmp2);
-		//STRDUP(tmp2)
-		//free(tmp2);
-		//STRDUP(" 1   1")
-		//STRDUP("   -  ")
-		//STRDUP("  ---")
+		STRDUP(tmp2)
+		free(tmp2);
+		STRDUP(" 1   1")
+		STRDUP("   -  ")
+		STRDUP("  ---")
 	printf(GREEN"End ft_strdup\n"RESET);
 	return (0);
 }

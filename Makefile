@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lulebugl <lulebugl@student.42.fr>          +#+  +:+       +#+         #
+#    By: nine <nine@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/24 00:28:31 by lulebugl          #+#    #+#              #
-#    Updated: 2020/03/28 11:15:18 by lulebugl         ###   ########.fr        #
+#    Updated: 2020/05/06 23:46:35 by nine             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,12 +25,13 @@ EXEC		=	test
 EXEC_BONUS	=	test_bonus
 
 ##				Ubuntu
-##%.o:			%.s
-##				nasm -f elf64 $<
-
 %.o:			%.s
-				nasm -f macho64 $<
+				nasm -f elf64 $<
 
+##				MacOS
+##%.o:			%.s
+##				nasm -f macho64 $< 
+##
 all:			$(NAME)
 
 $(NAME):		$(OBJS)

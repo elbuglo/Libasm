@@ -1,9 +1,9 @@
 ; ft_write
 
 	segment .text
-	global	_ft_write
+	global	ft_write
 
-_ft_write:
+ft_write:
 	push 	r8
 	push	r9
 	cmp		rsi, 0
