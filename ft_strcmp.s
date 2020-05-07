@@ -26,17 +26,10 @@ end:
 	mov	dl, BYTE [rdi + rcx]	; tmp = s1[i]
 	sub	dl, BYTE [rsi + rcx]	; tmp -= s2[i]
 	cmp	dl, 0
-	jz	equal					; if tmp == 0 
-	jl	inferior				; if tmp < 0
+	je	return
 
-superior:
-	mov rax, 1
-	ret
-
-inferior:
-	mov rax, -1
-	ret
-
-equal:
-	mov rax, 0
-	ret
+return:
+			movzx rax, BYTE [rdi + rcx]
+			movzx rbx, BYTE [rsi + rcx]
+			sub rax, rbx
+			ret

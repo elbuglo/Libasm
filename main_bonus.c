@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lulebugl <lulebugl@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nine <nine@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/28 10:31:39 by lulebugl          #+#    #+#             */
-/*   Updated: 2020/03/28 10:51:51 by lulebugl         ###   ########.fr       */
+/*   Updated: 2020/05/07 02:07:25 by nine             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,10 +62,10 @@ int		main(void)
 	printf("\n--ft_list_size\n");
 	printf("list content:\n");
 	printf_list(&list);
-	printf("size : %d (from first %d)\n", ft_list_size(&list), 3);
-	printf("size : %d (from second %d)\n", ft_list_size(&list_next), 2);
-	printf("size : %d (NULL %d)\n", ft_list_size(NULL), 0);
-	printf("size : %d (from last %d)\n", ft_list_size(&list_last), 1);
+	printf("size : %d (from first : %d)\n", ft_list_size(&list), 3);
+	printf("size : %d (from second : %d)\n", ft_list_size(&list_next), 2);
+	printf("size : %d (NULL : %d)\n", ft_list_size(NULL), 0);
+	printf("size : %d (from last : %d)\n", ft_list_size(&list_last), 1);
 	printf("-done\n");
 	free(list_next.data);
 	free(list_last.data);
