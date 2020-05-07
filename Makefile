@@ -40,13 +40,15 @@ bonus:			$(OBJS) $(OBJS_BONUS)
 				ar rcs $(NAME) $(OBJS) $(OBJS_BONUS) 
 
 test_bonus:			bonus
-						$(CC) $(FLAGS) -o $(EXEC_BONUS) main_bonus.c $(NAME)
+						$(CC) $(FLAGS) -o $(EXEC_BONUS) test_bonus.c $(NAME)
 
 clean:
 				rm -rf $(OBJS) $(OBJS_BONUS) 
 
 fclean:			clean
 				rm -rf $(NAME)
+				rm -f $(EXEC)
+				rm -f $(EXEC_BONUS)
 
 re:				fclean $(NAME)
 
