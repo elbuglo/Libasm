@@ -6,7 +6,7 @@
 #    By: nine <nine@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/24 00:28:31 by lulebugl          #+#    #+#              #
-#    Updated: 2020/05/07 02:15:00 by nine             ###   ########.fr        #
+#    Updated: 2020/05/07 02:22:35 by nine             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,6 +35,7 @@ $(NAME):		$(OBJS)
 
 test:			all
 					$(CC) $(FLAGS) -o $(EXEC) test.c $(NAME)
+					mkdir -p ./tmp
 
 bonus:			$(OBJS) $(OBJS_BONUS)
 				ar rcs $(NAME) $(OBJS) $(OBJS_BONUS) 
@@ -47,6 +48,7 @@ clean:
 
 fclean:			clean
 				rm -rf $(NAME)
+				rm -rf ./tmp
 				rm -f $(EXEC)
 				rm -f $(EXEC_BONUS)
 

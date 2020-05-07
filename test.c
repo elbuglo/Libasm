@@ -144,6 +144,32 @@ int		main()
 	printf("ft_read returns: %ld // errno: %d // strerror: %s\n", ft_read(-1, buffer, 2047), errno, strerror(errno));
 	errno = 0;
 	printf("read returns: %ld // errno: %d // strerror: %s\n", read(-1, buffer, 2047), errno, strerror(errno));
+	printf("\nTesting ft_read when reading from a directory\n");
+	if ((fd = open("./tmp", O_RDONLY)) == -1)
+	{
+		printf("Open error with ./tmp, please try again\n");
+		return (-1);
+	}
+	printf("ft_read returns: %ld // errno: %d // strerror: %s\n", ft_read(fd, buffer, 2047), errno, strerror(errno));
+	if ((c = close(fd)) == 1)
+	{
+		printf("Close error\n");
+		return (-1);
+	}
+
+	printf("\nread when reading from a directory\n");
+	if ((fd = open("./tmp", O_RDONLY)) == -1)
+	{
+		printf("Open error with ./tmp, please try again\n");
+		return (-1);
+	}
+	printf("read returns: %ld // errno: %d // strerror: %s\n", read(fd, buffer, 2047), errno, strerror(errno));
+	if ((c = close(fd)) == 1)
+	{
+		printf("Close error\n");
+		return (-1);
+	}
+	printf("\n");
 	errno = 0;
 	printf(BLUE"\nTesting ft_strdup\n\n"RESET);
 	char *str = 0;
